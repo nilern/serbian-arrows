@@ -13,6 +13,14 @@
   `(into ~@args ~xform ~seq-form))
 
 
+(defmethod expand-sink 'vec [_ _ xform seq-form]
+  `(into [] ~xform ~seq-form))
+
+
+(defmethod expand-sink 'set [_ _ xform seq-form]
+  `(into #{} ~xform ~seq-form))
+
+
 (defmethod expand-sink 'eduction [_ _ xform seq-form]
   `(eduction ~xform ~seq-form))
 
