@@ -38,5 +38,9 @@
 
 (defmacro ->> [seq-form & forms]
   (let [xforms (butlast forms)
-        [callee & args] (last forms)]
-    (expand-sink callee args `(comp ~@xforms) seq-form)))
+        [callee & args] (last forms)
+        seq-form* (gensym 'seq-form)
+        xform* (gensym 'xform)]
+    `(let [~seq-form* ~seq-form
+           ~xform* (comp ~@xforms)]
+       ~(expand-sink callee args xform* seq-form*))))
