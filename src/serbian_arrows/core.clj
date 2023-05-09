@@ -31,6 +31,11 @@
     2 `(transduce ~xform (completing ~(first args)) ~(second args) ~seq-form)))
 
 
+(defmethod expand-sink 'run! [_ [f] xform seq-form]
+  `(let [f# ~f]
+     (transduce ~xform (fn ([~'_ v#] (f# v#)) ([~'_] nil)) nil ~seq-form)))
+
+
 (defmacro ->> [seq-form & forms]
   (let [xforms (butlast forms)
         [callee & args] (last forms)]
