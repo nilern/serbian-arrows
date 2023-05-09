@@ -1,14 +1,40 @@
 # serbian-arrows
 
-A Clojure library designed to ... well, that part is up to you.
+> Personally, basing myself on the knowledge of this art to which I have
+> devoted my best energies, I do not hesitate to state here for future
+> reference and as a test of accuracy of my scientific forecast that flying
+> machines and ships propelled by electricity transmitted without wire will
+> have ceased to be a wonder in ten years from now. I would say five were it
+> not that there is such a thing as “inertia of human opinion” resisting
+> revolutionary ideas.
+>
+> -- Nikola Tesla, Serbian inventor
+
+Transducer-backed threading macros.
+
+## Rationale
+
+* Unnecessary waste of resources is to be avoided.
+* Transducers are more efficient in both space and time.
+* Transducers are in `clojure.core`.
+* Therefore we should utilize transducers whenever possible.
+* Unfortunately transducer usages are slightly harder to read than sequence
+  pipelines using threading macros.
+* Therefore we should provide transducer-backed threading macros.
 
 ## Usage
 
 FIXME
 
+## Credits
+
+* [swiss-arrows](https://github.com/rplevy/swiss-arrows) for the name.
+* Nikola Tesla for transducers such as AC generators/motors and radio
+  transmitters/receivers.
+
 ## License
 
-Copyright © 2023 FIXME
+Copyright © 2023 Pauli Jaakkola
 
 This program and the accompanying materials are made available under the
 terms of the Eclipse Public License 2.0 which is available at
