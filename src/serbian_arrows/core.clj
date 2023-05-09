@@ -18,7 +18,9 @@
 
 
 (defmethod expand-sink 'reduce [_ args xform seq-form]
-  `(transduce ~xform ~@args ~seq-form))
+  (case (count args)
+    1 `(transduce ~xform (completing ~(first args)) ~seq-form)
+    2 `(transduce ~xform (completing ~(first args)) ~(second args) ~seq-form)))
 
 
 (defmacro ->> [seq-form & forms]
